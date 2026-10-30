@@ -29,5 +29,16 @@ public class Hostel
                 Name = name.Trim();
                 Address = address.Trim();
             }
-        }
+    public void UpdateDetails(string name, string address)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Hostel name is required.");
+
+        if (string.IsNullOrWhiteSpace(address))
+            throw new ArgumentException("Hostel address is required.");
+
+        Name = name.Trim();
+        Address = address.Trim();
+    }
+}
     

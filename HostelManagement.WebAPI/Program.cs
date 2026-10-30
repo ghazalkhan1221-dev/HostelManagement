@@ -1,6 +1,6 @@
 
-using System.Text;
 using HostelManagement.Application.Interfaces;
+using HostelManagement.Application.Interfaces.Services;
 using HostelManagement.Infrastructure.Data;
 using HostelManagement.Infrastructure.Services;
 using HostelManagement.Infrastructure.Services.Auth;
@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,6 +64,10 @@ builder.Services.AddScoped<JwtService>();
 // Controllers and application services
 builder.Services.AddControllers();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IResidentService, ResidentService>();
+builder.Services.AddScoped<IBedService, BedService>();
+builder.Services.AddScoped<IRoomService, RoomService>();
+builder.Services.AddScoped<IHostelService, HostelService>();
 
 builder.Services.AddEndpointsApiExplorer();
 

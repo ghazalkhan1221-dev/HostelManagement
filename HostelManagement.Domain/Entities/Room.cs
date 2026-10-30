@@ -50,4 +50,24 @@ public class Room
             Capacity = capacity;
             Type = type;
         }
+    public void UpdateDetails(
+           string roomNumber,
+           int floorNumber,
+           int capacity,
+           RoomType type)
+    {
+        if (string.IsNullOrWhiteSpace(roomNumber))
+            throw new ArgumentException("Room number is required.");
+
+        if (floorNumber < 0)
+            throw new ArgumentOutOfRangeException(nameof(floorNumber));
+
+        if (capacity <= 0)
+            throw new ArgumentOutOfRangeException(nameof(capacity));
+
+        RoomNumber = roomNumber.Trim();
+        FloorNumber = floorNumber;
+        Capacity = capacity;
+        Type = type;
     }
+}

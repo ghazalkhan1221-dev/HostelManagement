@@ -46,5 +46,12 @@ namespace HostelManagement.Domain.Entities;
         {
             Status = BedStatus.Inactive;
         }
+    public void UpdateBedNumber(string bedNumber)
+    {
+        if (string.IsNullOrWhiteSpace(bedNumber))
+            throw new ArgumentException("Bed number is required.");
+
+        BedNumber = bedNumber.Trim();
     }
+}
 

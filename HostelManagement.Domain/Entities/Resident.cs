@@ -55,6 +55,28 @@ public class Resident
         {
             Status = ResidentStatus.Inactive;
         }
+    public void UpdateDetails(
+         string fullName,
+          string email,
+          string phoneNumber,
+          DateOnly admissionDate)
+    {
+        if (string.IsNullOrWhiteSpace(fullName))
+            throw new ArgumentException("Resident name is required.");
+
+        if (string.IsNullOrWhiteSpace(email))
+            throw new ArgumentException("Resident email is required.");
+
+        if (string.IsNullOrWhiteSpace(phoneNumber))
+            throw new ArgumentException("Phone number is required.");
+
+        FullName = fullName.Trim();
+        Email = email.Trim();
+        PhoneNumber = phoneNumber.Trim();
+        AdmissionDate = admissionDate;
     }
+
+
+}
 
 
